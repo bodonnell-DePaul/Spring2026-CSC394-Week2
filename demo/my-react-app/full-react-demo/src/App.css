@@ -1,0 +1,175 @@
+/* ===================================================
+   React + TypeScript Class Demo — Styles
+   =================================================== */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.6; }
+
+/* ---------- Light / Dark theme ---------- */
+.app.light {
+  --bg: #f9fafb; --card: #ffffff; --text: #111827;
+  --muted: #6b7280; --border: #e5e7eb; --accent: #4f46e5;
+  --accent-bg: #eef2ff; --danger: #dc2626; --success: #059669;
+}
+.app.dark {
+  --bg: #111827; --card: #1f2937; --text: #f3f4f6;
+  --muted: #9ca3af; --border: #374151; --accent: #818cf8;
+  --accent-bg: #1e1b4b; --danger: #f87171; --success: #34d399;
+}
+
+.app {
+  background: var(--bg); color: var(--text);
+  min-height: 100vh; transition: background 0.3s, color 0.3s;
+}
+
+/* ---------- App Layout ---------- */
+.app-header {
+  text-align: center; padding: 28px 16px 12px;
+}
+.app-header h1 { font-size: 1.8rem; }
+.subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+
+.main-content { max-width: 860px; margin: 0 auto; padding: 20px 16px 40px; }
+
+.app-footer {
+  text-align: center; padding: 16px; color: var(--muted); font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- Tab Bar ---------- */
+.tab-bar {
+  display: flex; flex-wrap: wrap; gap: 4px; justify-content: center;
+  padding: 8px 16px; border-bottom: 2px solid var(--border);
+  position: sticky; top: 0; background: var(--bg); z-index: 10;
+}
+.tab-btn {
+  border: none; background: none; color: var(--muted);
+  padding: 8px 14px; cursor: pointer; border-radius: 6px 6px 0 0;
+  font-size: 0.85rem; font-weight: 500; transition: all 0.2s;
+}
+.tab-btn:hover { color: var(--accent); background: var(--accent-bg); }
+.tab-btn.active {
+  color: var(--accent); background: var(--accent-bg);
+  border-bottom: 3px solid var(--accent); font-weight: 700;
+}
+
+/* ---------- Cards ---------- */
+.demo-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px; margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.demo-card h3 { margin-bottom: 8px; font-size: 1.1rem; }
+.without-card {
+  border-left: 4px solid var(--danger);
+  background: color-mix(in srgb, var(--danger) 5%, var(--card));
+}
+.without-card h3 { color: var(--danger); }
+.without-card li { margin-bottom: 8px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 8px 16px; border: 1px solid var(--border);
+  border-radius: 6px; cursor: pointer; font-size: 0.9rem;
+  background: var(--card); color: var(--text); transition: all 0.15s;
+}
+.btn:hover { filter: brightness(0.95); }
+.btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-danger  { background: var(--danger);  color: #fff; border-color: var(--danger); }
+.btn-small   { padding: 4px 10px; font-size: 0.8rem; }
+
+/* ---------- Inputs ---------- */
+input, select {
+  padding: 8px 12px; border: 1px solid var(--border);
+  border-radius: 6px; font-size: 0.9rem;
+  background: var(--card); color: var(--text);
+}
+input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+.input-error { border-color: var(--danger) !important; }
+
+/* ---------- Flex helpers ---------- */
+.flex-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start; }
+
+/* ---------- Misc ---------- */
+.explanation { color: var(--muted); font-size: 0.88rem; margin-bottom: 8px; }
+code { background: var(--accent-bg); padding: 1px 5px; border-radius: 3px; font-size: 0.88em; }
+.big-number { font-size: 2.5rem; font-weight: 700; text-align: center; }
+
+.log-box {
+  background: var(--accent-bg); border: 1px solid var(--border);
+  border-radius: 6px; padding: 10px 14px; margin-top: 8px;
+  font-size: 0.85rem; font-family: monospace;
+}
+.success-box {
+  background: color-mix(in srgb, var(--success) 10%, var(--card));
+  border: 1px solid var(--success); border-radius: 6px;
+  padding: 12px; color: var(--success); font-weight: 500;
+}
+.error-msg { color: var(--danger); font-size: 0.82rem; display: block; margin-top: 2px; }
+.form-group { margin-bottom: 10px; }
+.form-group label { display: block; font-weight: 500; margin-bottom: 2px; font-size: 0.9rem; }
+
+/* Badges */
+.badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; font-weight: 600; margin-right: 4px; }
+.badge-vip    { background: #fef3c7; color: #92400e; }
+.badge-admin  { background: #fce7f3; color: #9d174d; }
+.badge-user   { background: #dbeafe; color: #1e40af; }
+.badge-guest  { background: #f3f4f6; color: #4b5563; }
+
+/* Greeting cards */
+.greeting-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px 16px; min-width: 160px;
+}
+.greeting-card.vip { border-color: #f59e0b; background: #fffbeb; }
+
+/* User card mini */
+.user-card-mini {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 8px 12px; border: 1px solid var(--border);
+  border-radius: 6px; margin-bottom: 6px;
+}
+.card-actions { margin-left: auto; display: flex; gap: 4px; }
+
+/* Generic list */
+.generic-list { list-style: none; }
+.generic-list li { padding: 6px 0; border-bottom: 1px solid var(--border); }
+.empty { color: var(--muted); font-style: italic; }
+
+/* Profile card */
+.profile-card {
+  background: var(--accent-bg); border-radius: 8px; padding: 16px;
+}
+
+/* Notification toasts */
+.toast-container { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.toast {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 14px; border-radius: 6px; font-size: 0.9rem;
+  animation: slideIn 0.3s ease;
+}
+.toast button { background: none; border: none; cursor: pointer; font-size: 1.1rem; color: inherit; margin-left: 12px; }
+.toast-success { background: #d1fae5; color: #065f46; }
+.toast-error   { background: #fee2e2; color: #991b1b; }
+.toast-warning { background: #fef3c7; color: #92400e; }
+.toast-info    { background: #dbeafe; color: #1e40af; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Code block */
+.code-block {
+  background: var(--accent-bg); border: 1px solid var(--border);
+  border-radius: 6px; padding: 12px 16px; font-size: 0.82rem;
+  overflow-x: auto; white-space: pre; font-family: 'Fira Code', monospace;
+}
+
+/* Child box for performance demo */
+.child-box {
+  border: 2px dashed var(--border); border-radius: 8px;
+  padding: 12px; margin-top: 10px;
+}
