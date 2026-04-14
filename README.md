@@ -1727,7 +1727,7 @@ export default CustomHookExamples;
 
 Before we introduce the Context API, we need to understand the problem it solves. Imagine you have a user's authentication data (their name, role, etc.) that needs to be used by many different components throughout your application — the navigation bar, the profile page, a settings panel, an admin dashboard, and so on. Without Context, the only way to share this data is to pass it down through props at **every level** of the component tree, even through components that don't need the data themselves. This is called **"prop drilling"** and it looks like this:
 
-```
+```txt
 App (has the user data)
   └── Layout (receives user as a prop just to pass it down)
         └── Sidebar (receives user as a prop just to pass it down)
@@ -2028,7 +2028,7 @@ const Navigation: React.FC = () => {
 
 > **Why does this component use `isAuthenticated` and `isAdmin` instead of checking `user` directly?** Readability and intent. `isAuthenticated` clearly communicates "we're deciding what to show based on login status" — it reads like a business rule, not a null check. These derived booleans make the JSX logic clearer at a glance.
 
-> **What's `user?.name` (the `?.` operator)?** This is **optional chaining**. Even though we check `isAuthenticated` above, TypeScript can't always narrow the type through ternary branches as well as through `if` blocks. The `?.` operator safely returns `undefined` if `user` is `null`, preventing a runtime crash. It's a defensive measure that costs nothing and prevents potential errors.
+> **What's `user?.name` (the `?.` operator)?** This is **optional chaining**. Even though we check `isAuthenticated` in the ternary condition above, TypeScript's control flow analysis doesn't carry type narrowing into the branches of a JSX ternary expression the way it does with an `if` statement. In other words, inside the `isAuthenticated ? (...)` branch, TypeScript still considers `user` to be `User | null`. The `?.` operator safely returns `undefined` if `user` is `null`, preventing a runtime crash. It's a defensive measure that costs nothing and prevents potential errors.
 
 > **What's the `<>...</>` wrapper?** This is a **React Fragment**. JSX requires a single parent element. When you want to return multiple sibling elements without adding an extra `<div>` to the DOM (which would mess up your nav styling), you use a Fragment. It renders nothing to the DOM — it's purely a grouping mechanism for JSX.
 
