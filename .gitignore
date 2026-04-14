@@ -31,3 +31,38 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# .NET build output
+**/bin/
+**/obj/
+
+# .NET user-specific files
+*.user
+*.userosscache
+*.sln.docstates
+
+# .NET test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# .NET publish output
+**/publish/
+**/PublishOutput/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+!**/packages/build/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET
+**/wwwroot/lib/
+
+# .NET secrets
+**/secrets.json
+appsettings.*.json
+!appsettings.Development.json

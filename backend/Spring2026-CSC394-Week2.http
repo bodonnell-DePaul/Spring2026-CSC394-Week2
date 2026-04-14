@@ -1,0 +1,6 @@
+@Spring2026_CSC394_Week2_HostAddress = http://localhost:5011
+
+GET {{Spring2026_CSC394_Week2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
