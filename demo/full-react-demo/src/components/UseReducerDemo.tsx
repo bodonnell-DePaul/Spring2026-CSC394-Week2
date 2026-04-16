@@ -80,8 +80,8 @@ function cartReducer(state: CartState, action: CartAction): CartState {
   }
 }
 
-// ---------- Sample catalogue ----------
-const CATALOGUE = [
+// ---------- Sample catalog ----------
+const CATALOG = [
   { id: 1, name: 'React Fundamentals Book', price: 29.99 },
   { id: 2, name: 'TypeScript Masterclass', price: 34.99 },
   { id: 3, name: 'Node.js Handbook', price: 24.99 },
@@ -121,16 +121,16 @@ const UseReducerDemo: React.FC = () => {
         </p>
       </section>
 
-      {/* Product catalogue */}
+      {/* Product catalog */}
       <section className="demo-card">
-        <h3>Product Catalogue</h3>
+        <h3>Product Catalog</h3>
         <p className="explanation">
           Click <strong>Add to Cart</strong> to dispatch an <code>ADD_ITEM</code> action.
           If the product is already in the cart, the reducer increments its quantity instead
           of adding a duplicate.
         </p>
         <div style={{ display: 'grid', gap: 8 }}>
-          {CATALOGUE.map(product => {
+          {CATALOG.map(product => {
             const inCart = cart.items.find(i => i.id === product.id);
             return (
               <div
